@@ -23,4 +23,6 @@ SAS Institute, Cary, North Carolina, USA**
     ├── pyvenv.cfg         - Virtual Environment configuration file  
     └── requirements.txt   - Virtual Environment packages list  
 └── **server.py              - pyflask server code. Main Executable Python file**  
+  
+**2021_PhUSE_US_TT11_configurations.pdf - Configuration slides for setting up Virtual Machine with Python, R and SAS**  
 
