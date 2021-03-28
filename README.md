@@ -2,7 +2,7 @@
 **Harness analytical strengths: SAS, R, Python Web Services 
 Trends and Technology – TT11  
 Sandeep Juneja, Ben Bocchicchio  
-SAS Institute, Cary, North Carolina, USA  **
+SAS Institute, Cary, North Carolina, USA**
   
 **File Description**  
 .  
