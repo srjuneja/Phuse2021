@@ -4,7 +4,7 @@ Trends and Technology – TT11
 Sandeep Juneja, Ben Bocchicchio  
 SAS Institute, Cary, North Carolina, USA  
   
-File Description  
+**File Description**
 .  
 ├── configurations  
 │   └── config.py          - define configuration options used in project  
