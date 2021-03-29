@@ -11,10 +11,6 @@ from python.word2pdf import linux_word_pdf, win_word_pdf
 
 python = Blueprint("python", __name__, root_path="/python")
 
-# file_handler = logging.FileHandler('server.log')
-# python.logger.addHandler(file_handler)
-# python.logger.setLevel(logging.INFO)
-
 
 @python.route('/python', methods=['GET'])
 def hello():
@@ -23,10 +19,8 @@ def hello():
 
 @python.route("/python/word2pdf", methods=['POST'])
 def word2pdf():
-    # app.logger.info(PROJECT_HOME)
+    
     if request.method == 'POST' and request.files['file']:
-        print(request.__dict__)
-        # app.logger.info(app.config['UPLOAD_FOLDER'])
         # Check if the request is correct and has file
         utility.check_request_file(request=request, extensions=config.PYTHON_UPLOAD_EXTENSIONS)
 
@@ -39,8 +33,6 @@ def word2pdf():
         print("saving {}".format(saved_path))
         uploaded_file.save(saved_path)
 
-        # utility.upload_files(request=request, upload_folder=config.UPLOAD_FOLDER)
-
         if config.OS_TYPE.lower() == "windows":
             # Method 2 - using Windows DLLs
             win_word_pdf(saved_path)
@@ -52,8 +44,7 @@ def word2pdf():
         download_file = os.path.splitext(filename)[0] + ".pdf"
         print(download_file)
         return redirect(url_for('python.download', filename=download_file))
-        # return redirect(url_for('listfiles', filename=filename))
-        # return send_from_directory(app.config['UPLOAD_FOLDER'],filename, as_attachment=True)
+
     else:
         return {"Error": "Input File is missing"}
 
