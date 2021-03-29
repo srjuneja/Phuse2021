@@ -22,8 +22,6 @@ def run_R(r_filepath, *args):
     # print(arguments)
 
     # COMMAND WITH ARGUMENTS
-    # subprocess.call(['Rscript', 'script.R', arg1, arg2, arg3])
-    # cmd = ["Rscript", "--vanilla", r_filepath,'/home/sajune/r_workspace/testgraph.jpg']
     cmd = ["Rscript", "--vanilla"] + arguments
     print (cmd)
     p = Popen(cmd, cwd="/home/sajune/r_workspace", stdin=PIPE, stdout=PIPE, stderr=PIPE, universal_newlines=True)
@@ -40,13 +38,3 @@ def run_R(r_filepath, *args):
 #  TEST CALL
 # run_R("/home/sajune/r_workspace/test_r1.R")
 # run_R("/home/sajune/r_workspace/test_r1.R","arg1","arg2")
-'''
-# https://stackoverflow.com/questions/49922118/running-r-script-in-python
-def run_R2(source_file):
-    r = robjects.r
-    output = r.source("/home/sajune/r_workspace/test_r1.R")
-    print(output)
-    # print(robjects.globalenv["a"])
-
-run_R2("/home/sajune/r_workspace/test_r1.R")
-'''
