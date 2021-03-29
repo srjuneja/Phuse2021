@@ -17,7 +17,6 @@ def hello():
 
 @r.route("/r/run_rcode",methods=['POST'])
 def r_code():
-    # app.logger.info(PROJECT_HOME)
     if request.method == 'POST' and request.files['file']:
         # if folder does not exist, create the upload folder
         utility.create_new_folder(config.UPLOAD_FOLDER)
