@@ -16,7 +16,7 @@ def hello():
     return {"data": "Hello SAS Webservices!"}
 
 
-@sas.route("/sas/word2sas", methods=['POST'])
+@sas.route("/sas/word2sas", methods=['POST']) 
 def wordsas():
     if request.method == 'POST' and request.files['file']:
         # Check if the request is correct and has file
