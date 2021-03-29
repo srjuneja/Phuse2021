@@ -4,21 +4,6 @@ import saspy as saspy
 
 
 # https://stackoverflow.com/questions/58254609/python-docx-parse-a-table-to-panda-dataframe
-# document = Document('c:\\temp\\BPI Change from Baseline Report Specification.docx')
-
-def read_docx_tables(file_path):
-    document = Document(file_path)
-    tables = []
-    for table in document.tables:
-        df = [['' for i in range(len(table.columns))] for j in range(len(table.rows))]
-        for i, row in enumerate(table.rows):
-            for j, cell in enumerate(row.cells):
-                if cell.text:
-                    df[i][j] = cell.text
-
-    tables.append(pd.DataFrame(df))
-    print(tables)
-
 def docx2sasdsets(file_path, lib_folder):
     document = Document(file_path)
     for table in document.tables:
@@ -34,7 +19,7 @@ def docx2sasdsets(file_path, lib_folder):
 
     finaltables=pd.DataFrame(doctbls)
     generate_sas_dataset(folder_path=lib_folder, df=finaltables)
-    print(finaltables)
+    
 
 def initialize_sas_session():
     global sas
@@ -54,7 +39,3 @@ def generate_sas_dataset(folder_path, df):
     sas.df2sd(df=df, table="word_tbl", libref=libref)
     # close sas session
     close_sas_session()
-
-
-if __name__ == '__main__':
-    docx2sasdsets(file_path='c:\\temp\\BPI Change from Baseline Report Specification.docx', lib_folder="C:\\temp\\")
