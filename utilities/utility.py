@@ -7,16 +7,13 @@ from multiprocessing import Process
 def check_request_file(request, extensions):
     # check if the post request has the file part
     if 'file' not in request.files:
-        # flash('No file part')
         return redirect(request.url)
 
     uploaded_file = request.files['file']
     filename = secure_filename(uploaded_file.filename)
-    # app.logger.info(filename)
     # if user does not select file, browser also
     # submit a empty part without filename
     if filename == '':
-        # flash('No selected file')
         return redirect(request.url)
 
     #  if extension not valid, abort
@@ -35,13 +32,6 @@ def create_new_folder(local_dir):
 def upload_files(request, upload_folder):
     # if folder does not exist, create the upload folder
     create_new_folder(upload_folder)
-    # save the file in upload folder
-    # uploaded_file = request.files['file']
-    # filename = secure_filename(uploaded_file.filename)
-    # saved_path = os.path.join(config.UPLOAD_FOLDER, filename)
-    # print("saving {}".format(saved_path))
-    # uploaded_file.save(saved_path)
-
     files = request.files.getlist("file")
     for file in files:
         filename = secure_filename(file.filename)
